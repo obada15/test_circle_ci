@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  buildANDROID:
+  build:
     docker:
       - image: cirrusci/flutter
     steps:

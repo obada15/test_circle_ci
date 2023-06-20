@@ -9,7 +9,3 @@ jobs:
       - run: flutter build apk --release
       - store_artifacts:
           path: build/app/outputs/flutter-apk/app-release.apk
-      - run: pod install
-      - run: flutter build ipa --release
-      - store_artifacts:
-          path: build/app/outputs/ios/app.ipa

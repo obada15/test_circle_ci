@@ -14,6 +14,12 @@ jobs:
       - run:
           command: bundle exec fastlane distribute
           working_directory: ios
+      - run:
+          name: Install Dependencies
+          command: flutter pub get
+      - run:
+          name: Build Android APK
+          command: flutter build apk --release
 workflows:
   distribute:
     jobs:

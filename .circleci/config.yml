@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build:
+  buildANDROID:
     docker:
       - image: cirrusci/flutter
     steps:
@@ -9,12 +9,6 @@ jobs:
       - run: flutter build apk --release
       - store_artifacts:
           path: build/app/outputs/flutter-apk/app-release.apk
-  buildIOS:
-    docker:
-      - image: cirrusci/flutter
-    steps:
-      - checkout
-      - run: flutter doctor
       - run: pod install
       - run: flutter build ipa --release
       - store_artifacts:

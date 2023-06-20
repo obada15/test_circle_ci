@@ -17,9 +17,9 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
-    - run:
-        name: Build Android APK
-        command: flutter build apk --release
+      - run:
+          name: Build Android APK
+          command: flutter build apk --release
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:

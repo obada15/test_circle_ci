@@ -12,9 +12,6 @@ jobs:
       - flutter/install_android_gradle_dependencies
       - flutter/install_android_gem
       - run:
-          command: bundle exec fastlane distribute
-          working_directory: ios
-      - run:
           name: Install Dependencies
           command: flutter pub get
       - run:

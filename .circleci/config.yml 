@@ -1,15 +1,16 @@
-version: 1
+version: 2
 jobs:
   build:
+    working_directory: ~/repo
     docker:
-      - image: cirrusci/flutter
+      - image: circleci/flutter:2.0.0
     steps:
       - checkout
       - run:
-          name: Get properties
-          command: |
-            wget $GOOGLESERVICESJSON -P android/app
-      - run: flutter channel stable
-      - run: flutter doctor
-      - run: flutter test
-      - run: flutter -v build apk --debug
+          name: Install Dependencies
+          command: flutter pub get
+      - run:
+          name: Build Android APK
+          command: flutter build apk --release
+          when:
+            branch: [main, develop]

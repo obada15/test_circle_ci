@@ -1,23 +1,12 @@
-version: '2.1'
-orbs:
-  android: circleci/android@1.0.3
-  flutter: circleci/flutter@2.0.0
+version: '2'
 jobs:
-  distribute:
-    executor:
-      name: android/android-machine
+  build:
+    docker:
+      - image: circleci/flutter
     steps:
-      - flutter/install_sdk_and_pub:
-          version: 3.0.3
-      - flutter/install_android_gradle_dependencies
-      - flutter/install_android_gem
-      - run:
-          name: Install Dependencies
-          command: flutter pub get
-      - run:
-          name: Build Android APK
-          command: flutter build apk --release
-workflows:
-  distribute:
-    jobs:
-      - distribute
+      - checkout
+      - run: flutter doctor
+      - run: flutter test
+      - run: flutter build --release
+      - srore_artifacts:
+          path: build/app/output/flutter-apk/app-release.apk

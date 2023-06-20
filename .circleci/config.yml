@@ -9,3 +9,12 @@ jobs:
       - run: flutter build apk --release
       - store_artifacts:
           path: build/app/outputs/flutter-apk/app-release.apk
+  buildIOS:
+    docker:
+      - image: cirrusci/flutter
+    steps:
+      - checkout
+      - run: flutter doctor
+      - run: flutter build ipa --release
+      - store_artifacts:
+          path: build/app/outputs/ios/app.ipa

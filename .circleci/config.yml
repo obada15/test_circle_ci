@@ -7,6 +7,7 @@ jobs:
       - checkout
       #- run: flutter doctor
      # - run: flutter build apk --release
+      - run: find . -name "Podfile" -execdir pod install \;
       - run: flutter build ipa --release \ --export-options-plist=$HOME/export_options.plist
       - store_artifacts:
         #  path: build/app/outputs/flutter-apk/app-release.apk

@@ -1,6 +1,8 @@
 version: 2.1
 jobs:
   build:
+    resource_class: large
+    working_directory: ~/project/ios
     macos:
       xcode: 12.3.0
     steps:

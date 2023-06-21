@@ -17,7 +17,7 @@ jobs:
           name: Bundle install
           working_directory: ./ios
           command: bundle install
-       - run:
-           name: Pod install
-           working_directory: ./ios
-           command: bundle exec pod install --repo-update
+      - run:
+          name: Pod install
+          working_directory: ./ios
+          command: bundle exec pod install --repo-update

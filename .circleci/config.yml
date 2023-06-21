@@ -9,6 +9,7 @@ jobs:
       FASTLANE_LANE: test
     steps:
       - checkout
+      - run: cd ios
       - run: bundle install
       - run:
           name: Fastlane

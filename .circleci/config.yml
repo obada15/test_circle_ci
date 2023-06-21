@@ -13,11 +13,11 @@ jobs:
      #     path: build/app/outputs/flutter-apk/app-release.apk
       #- run: flutter doctor
       #- run: flutter pub get
-      - run:
+       - run:
           name: Bundle install
           working_directory: ./ios
           command: bundle install
-      - run:
+       - run:
           name: Pod install
           working_directory: ./ios
           command: bundle exec pod install --repo-update

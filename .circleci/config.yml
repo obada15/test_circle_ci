@@ -1,27 +1,13 @@
 version: 2.1
 jobs:
   build:
-    resource_class: large
-    working_directory: ~/project/ios
-    macos:
-      xcode: 12.3.0
+    docker:
+      - image: cirrusci/flutter
     steps:
       - checkout
       - run: flutter doctor
-      - run:
-          name: Bundle install
-          working_directory: ./ios
-          command: bundle install
-      - run:
-          name: Pod install
-          working_directory: ./ios
-          command: bundle exec pod install --repo-update
-
-
-    #docker:
-    #  - image: cirrusci/flutter
-         # - run: flutter build apk --release
-         # - store_artifacts:
-         #     path: build/app/outputs/flutter-apk/app-release.apk
-         # - run: flutter doctor
-         # - run: flutter pub get
+     # - run: flutter build apk --release
+      - run: flutter build ipa --release
+      - store_artifacts:
+        #  path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/ios/ipa/*.ipa
